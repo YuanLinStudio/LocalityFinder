@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct LFCountry: Equatable, Identifiable {
+public struct LFCountry: Equatable, Identifiable, Hashable {
     public var id = UUID()
     
     public var provinces: [LFProvince] = []
@@ -52,7 +52,7 @@ public struct LFCountry: Equatable, Identifiable {
     }
 }
 
-public struct LFProvince: Equatable, Identifiable {
+public struct LFProvince: Equatable, Identifiable, Hashable {
     public var id: String { return name }
     
     public let name: String
@@ -87,7 +87,7 @@ public struct LFProvince: Equatable, Identifiable {
     }
 }
 
-public struct LFCity: Equatable, Identifiable {
+public struct LFCity: Equatable, Identifiable, Hashable {
     public var id: String { return name }
     
     public let name: String
@@ -111,7 +111,7 @@ public struct LFCity: Equatable, Identifiable {
     }
 }
 
-public struct LFDistrict: Equatable, Identifiable {
+public struct LFDistrict: Equatable, Identifiable, Hashable {
     public var id: String { return name }
     
     public let name: String
@@ -119,7 +119,7 @@ public struct LFDistrict: Equatable, Identifiable {
 }
 
 
-public struct LFContent: Equatable, Identifiable {
+public struct LFContent: Equatable, Identifiable, Hashable {
     public var id: Int { return code }
     
     public var code: Int = 0

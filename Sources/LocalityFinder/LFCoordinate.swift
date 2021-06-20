@@ -50,3 +50,9 @@ extension LFCoordinate: Equatable {
         return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
     }
 }
+
+extension LFCoordinate: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.urlString)
+    }
+}
