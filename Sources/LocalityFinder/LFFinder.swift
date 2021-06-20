@@ -19,6 +19,8 @@ public class LFFinder {
             .map { nation[$0.province][$0.city][$0.district].content = .init(from: $0) }
         return nation
     }()
+    
+    public init() { }
 }
 
 fileprivate func getLocalities() -> [LFLocality] {
