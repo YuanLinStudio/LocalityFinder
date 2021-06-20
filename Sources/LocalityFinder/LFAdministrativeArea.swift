@@ -125,6 +125,9 @@ public struct LFContent: Equatable, Identifiable {
     public var code: Int = 0
     public var formattedAddress: String = ""
     public var coordinate: LFCoordinate = .defaultCoordinate
+    
+    public static let defaultContent = LFContent()
+    
 }
 
 extension LFContent {
