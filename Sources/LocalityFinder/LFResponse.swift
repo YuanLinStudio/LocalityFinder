@@ -7,15 +7,15 @@
 
 import Foundation
 
-public struct LFResponse: Codable, Equatable {
-    public let localities: [LFLocality]
+struct LFResponse: Codable, Equatable {
+    let localities: [LFLocality]
     
-    public init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         localities = try container.decode([LFLocality].self)
     }
     
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         try container.encode(localities)
     }

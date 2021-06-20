@@ -7,7 +7,9 @@
 
 import Foundation
 
-public struct LFLocality: Codable, Equatable {
+public struct LFLocality: Codable, Equatable, Identifiable {
+    public let id = UUID()
+    
     public let province: String
     public let city: String
     public let district: String
