@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct LFLocality: Codable, Equatable, Identifiable {
+public struct LFLocality: Codable, Equatable, Identifiable, Hashable {
     public let id = UUID()
     
     public let province: String
@@ -24,7 +24,9 @@ public struct LFLocality: Codable, Equatable, Identifiable {
         case code = "adcode"
         case formattedAddress = "formatted_address"
     }
-    
+}
+
+extension LFLocality {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -48,4 +50,8 @@ public struct LFLocality: Codable, Equatable, Identifiable {
         
         try coordinate.encode(to: encoder)
     }
+}
+
+extension LFLocality {
+    public static let defaultLocality: LFLocality = .init(province: "", city: "", district: "", code: 000000, formattedAddress: "", coordinate: .defaultCoordinate)
 }

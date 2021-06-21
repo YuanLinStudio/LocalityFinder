@@ -15,8 +15,7 @@ public class LFFinder {
     public lazy var structuredContent: LFCountry = {
         let localities = getLocalities()
         var nation = LFCountry()
-        let _ = localities.filter { $0.city != "" && $0.district != "" }
-            .map { nation[$0.province][$0.city][$0.district].content = .init(from: $0) }
+        let _ = localities.filter { $0.city != "" && $0.district != "" }.map { nation[$0.province][$0.city][$0.district].locality = $0 }
         return nation
     }()
     

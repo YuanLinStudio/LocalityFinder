@@ -4,9 +4,9 @@
     final class LocalityFinderTests: XCTestCase {
         
         func testEqual() {
-            let content = LFFinder().structuredContent["河南省"]["郑州市"]["上街区"].content
-            print(content)
-            XCTAssertEqual(content.code, 410106)
+            let locality = LFFinder().structuredContent["河南省"]["郑州市"]["上街区"].locality
+            print(locality)
+            XCTAssertEqual(locality.code, 410106)
         }
         
         func testProvince() {
@@ -28,9 +28,10 @@
         }
         
         func testAbbriable() {
-            let content1 = LFFinder().structuredContent["河南省"]["郑州市"]["上街区"].content
-            let content2 = LFFinder().structuredContent["河南省", "郑州市", "上街区"].content
+            let locality1 = LFFinder().structuredContent["河南省"]["郑州市"]["上街区"].locality
+            let locality2 = LFFinder().structuredContent["河南省", "郑州市", "上街区"].locality
             
-            XCTAssertEqual(content1, content2)
+            //XCTAssertEqual(locality1, locality2)
+            XCTAssertEqual(locality1.code, locality2.code)
         }
     }

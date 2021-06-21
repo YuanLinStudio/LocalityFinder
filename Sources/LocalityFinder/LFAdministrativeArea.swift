@@ -115,23 +115,5 @@ public struct LFDistrict: Equatable, Identifiable, Hashable {
     public var id: String { return name }
     
     public let name: String
-    public var content: LFContent = .init()
-}
-
-
-public struct LFContent: Equatable, Identifiable, Hashable {
-    public var id: Int { return code }
-    
-    public var code: Int = 0
-    public var formattedAddress: String = ""
-    public var coordinate: LFCoordinate = .defaultCoordinate
-    
-    public static let defaultContent = LFContent()
-    
-}
-
-extension LFContent {
-    init(from locality: LFLocality) {
-        self.init(code: locality.code, formattedAddress: locality.formattedAddress, coordinate: locality.coordinate)
-    }
+    public var locality: LFLocality = .defaultLocality
 }
