@@ -22,8 +22,8 @@ public class LFFinder {
     }()
      */
     
-    /// 按照`structuredDictionary[province][city][district]`访问数据
-    public lazy var structuredDictionary: OrderedDictionary<String, OrderedDictionary<String, OrderedDictionary<String, LFLocality>>> = {
+    /// 按照`localitiesDictionary[province][city][district]`访问数据
+    public lazy var localitiesDictionary: OrderedDictionary<String, OrderedDictionary<String, OrderedDictionary<String, LFLocality>>> = {
         var dictionary = OrderedDictionary<String, OrderedDictionary<String, OrderedDictionary<String, LFLocality>>>()
         
         let localities = getLocalities().filter { $0.province != "" && $0.city != "" && $0.district != "" }
