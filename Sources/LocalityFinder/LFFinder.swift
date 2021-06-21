@@ -8,6 +8,11 @@
 import Foundation
 import OrderedDictionary
 
+public typealias LFAdministrativeArea<T> = OrderedDictionary<String, T>
+public typealias LFDistrict = LFLocality
+public typealias LFCity = LFAdministrativeArea<LFDistrict>
+public typealias LFProvince = LFAdministrativeArea<LFCity>
+
 public class LFFinder {
     /// 全部的地区地市
     public lazy var allLocalities: [LFLocality] = getLocalities()
