@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 14.0, macOS 11.0, *)
-struct LFLocalityPicker: View {
+public struct LFLocalityPicker: View {
     
     public let title: LocalizedStringKey
     @Binding public var locality: LFLocality
@@ -16,7 +16,7 @@ struct LFLocalityPicker: View {
     
     @StateObject var viewModel = LFLocalityPickerViewModel()
     
-    var body: some View {
+    public var body: some View {
         Button(action: edit) {
             HStack {
                 Text(title)
