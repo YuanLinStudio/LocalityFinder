@@ -53,5 +53,5 @@ extension LFLocality {
 }
 
 extension LFLocality {
-    public static let defaultLocality: LFLocality = .init(province: "", city: "", district: "", code: 000000, formattedAddress: "", coordinate: .defaultCoordinate)
+    public static let defaultLocality: LFLocality = LFFinder().localitiesDictionary["上海市"]!["上海市"]!["闵行区"]!
 }
