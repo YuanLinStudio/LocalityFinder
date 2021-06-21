@@ -12,16 +12,6 @@ public class LFFinder {
     /// 全部的地区地市
     public lazy var allLocalities: [LFLocality] = getLocalities()
     
-    /// 按照`structuredContent[province][city][district]`访问数据
-    /*
-    public lazy var structuredContent: LFCountry = {
-        let localities = getLocalities()
-        var nation = LFCountry()
-        let _ = localities.filter { $0.city != "" && $0.district != "" }.map { nation[$0.province][$0.city][$0.district].locality = $0 }
-        return nation
-    }()
-     */
-    
     /// 按照`localitiesDictionary[province][city][district]`访问数据
     public lazy var localitiesDictionary: OrderedDictionary<String, OrderedDictionary<String, OrderedDictionary<String, LFLocality>>> = {
         var dictionary = OrderedDictionary<String, OrderedDictionary<String, OrderedDictionary<String, LFLocality>>>()
