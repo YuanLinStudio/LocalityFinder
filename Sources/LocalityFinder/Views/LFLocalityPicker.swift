@@ -9,6 +9,16 @@ import SwiftUI
 
 @available(iOS 14.0, macOS 11.0, *)
 public struct LFLocalityPicker: View {
+    public init(title: LocalizedStringKey, locality: Binding<LFLocality>) {
+        self.title = title
+        self._locality = locality
+    }
+    
+    public init(title: LocalizedStringKey, locality: Binding<LFLocality>, isActive: State<Bool>) {
+        self.title = title
+        self._locality = locality
+        self._isActive = isActive
+    }
     
     public let title: LocalizedStringKey
     @Binding public var locality: LFLocality
