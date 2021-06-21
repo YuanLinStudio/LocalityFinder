@@ -6,18 +6,38 @@
 //
 
 import Foundation
-//import OrderedDictionary
+import OrderedDictionary
 
 public class LFFinder {
     /// 全部的地区地市
     public lazy var allLocalities: [LFLocality] = getLocalities()
     
-    /// 按照`content[province][city][district]`访问数据
+    /// 按照`structuredContent[province][city][district]`访问数据
+    /*
     public lazy var structuredContent: LFCountry = {
         let localities = getLocalities()
         var nation = LFCountry()
         let _ = localities.filter { $0.city != "" && $0.district != "" }.map { nation[$0.province][$0.city][$0.district].locality = $0 }
         return nation
+    }()
+     */
+    
+    /// 按照`structuredDictionary[province][city][district]`访问数据
+    public lazy var structuredDictionary: OrderedDictionary<String, OrderedDictionary<String, OrderedDictionary<String, LFLocality>>> = {
+        var dictionary = OrderedDictionary<String, OrderedDictionary<String, OrderedDictionary<String, LFLocality>>>()
+        
+        let localities = getLocalities().filter { $0.province != "" && $0.city != "" && $0.district != "" }
+        
+        for locality in localities {
+            if dictionary[locality.province] == nil {
+                dictionary[locality.province] = .init()
+            }
+            if dictionary[locality.province]![locality.city] == nil {
+                dictionary[locality.province]![locality.city] = .init()
+            }
+            dictionary[locality.province]![locality.city]![locality.district] = locality
+        }
+        return dictionary
     }()
     
     public init() { }
