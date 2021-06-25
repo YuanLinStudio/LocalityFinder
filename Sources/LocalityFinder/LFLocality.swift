@@ -8,6 +8,7 @@
 import Foundation
 
 public struct LFLocality: Codable, Equatable, Identifiable, Hashable {
+    
     public let id = UUID()
     
     public let province: String
@@ -23,6 +24,15 @@ public struct LFLocality: Codable, Equatable, Identifiable, Hashable {
         case district
         case code = "adcode"
         case formattedAddress = "formatted_address"
+    }
+    
+    public init(province: String, city: String, district: String, code: Int, formattedAddress: String, coordinate: LFCoordinate) {
+        self.province = province
+        self.city = city
+        self.district = district
+        self.code = code
+        self.formattedAddress = formattedAddress
+        self.coordinate = coordinate
     }
 }
 
